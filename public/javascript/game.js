@@ -19,8 +19,12 @@
 		var andTheWinnerIs = function(winner) {
 			if(winner === 'Draw')
         $('.result').text("It's a " + winner + "! " + "You both chose "+ computerGesture.type + ". Choose again!"); 
-      else
-			$('.result').text('The Winner is ' + winner + "! ");
+      if(winner === playerGesture.type)
+        $('.result').text("You win!");
+      if(winner === computerGesture.type)
+        $('.result').text("You lost!");
+   //    else
+			// $('.result').text('The Winner is ' + winner + "! ");
 		}
 	var playerGesture = null
 		var playersChoice = function (choice) {
