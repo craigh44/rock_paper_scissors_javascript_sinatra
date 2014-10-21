@@ -1,0 +1,55 @@
+body {
+    padding:0;
+    margin:0;
+}
+
+h1 {
+	  font-size: 40px;
+		text-align: center;
+    color: white;
+    margin-left: 40px;
+} 
+
+h2 {
+	  font-size: 40px;
+		text-align: center;
+    color: black;
+    margin-left: 40px;
+}
+
+
+section.choice {
+		background-color: grey;
+		text-align: center;
+}
+
+section.title{
+		background-color: #fffff2;
+		text-align: center;
+}
+
+p {
+		 color: grey ;
+	 	 text-align: center;
+}
+
+nav {
+		 display: block;
+	 	 background-color: grey;
+		 height: 60px;
+		 border-top: 1px solid #000;
+		 border-bottom: 1px solid #000;
+}
+
+.choice img {
+		 opacity: 0.5;
+}
+
+
+.choice .highlight  {
+		 opacity: 1;
+
+}
+
+
+
