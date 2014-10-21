@@ -17,14 +17,16 @@
 		});
 
 		var andTheWinnerIs = function(winner) {
-			$('.result').text('The winner is ' + winner);
+			if(winner === 'Draw')
+        $('.result').text("It's a " + winner + "! " + "You both chose "+ computerGesture.type + ". Choose again!"); 
+      else
+			$('.result').text('The Winner is ' + winner + "! ");
 		}
-
+	var playerGesture = null
 		var playersChoice = function (choice) {
-			return gest[$(choice).data('gesture')];
-		}
-
-
+			playerGesture = gest[$(choice).data('gesture')];
+		return playerGesture
+}
 
 		$("img").on("click", function(){ 
 			andTheWinnerIs(game.decideWinnerOf(playersChoice(this), computerChoice()))
@@ -32,12 +34,29 @@
 
 
 	$('img').on("click", function(){	
-			$(".player_choice").text("You chose " + ($(this).data('gesture')))
+			$(".player_choice").text("You chose " + playerGesture.type + "!")
 		});
 
 		$('img').on("click", function(){
-			$(".opp_choice").text("Your opponent chose " + computerGesture.type)
+			$(".opp_choice").text("Your opponent chose " + computerGesture.type + "!")
 		});
+
+
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
+	});
 
 	});
 
