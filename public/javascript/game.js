@@ -1,8 +1,10 @@
 	var game = new RockPaperScissors;
-	var gest = {rock: new Rock, paper: new Paper, scissors: new Scissors}
-	var computer = function() {
+	var gest = {Rock: new Rock, Paper: new Paper, Scissors: new Scissors}
+	var computerGesture = null; 
+	var computerChoice = function() {
 		var gestures = [new Rock, new Scissors, new Paper];
-		return gestures[Math.floor(Math.random()* gestures.length)];
+		computerGesture = gestures[Math.floor(Math.random()* gestures.length)];
+		return computerGesture
 	}
 
 	$(document).ready(function(){
@@ -15,19 +17,27 @@
 		});
 
 		var andTheWinnerIs = function(winner) {
-			$('h2').text('The winner is ' + winner);
+			$('.result').text('The winner is ' + winner);
 		}
 
 		var playersChoice = function (choice) {
 			return gest[$(choice).data('gesture')];
-
 		}
 
 
 
 		$("img").on("click", function(){ 
-			andTheWinnerIs(game.decideWinnerOf(playersChoice(this), computer()))
+			andTheWinnerIs(game.decideWinnerOf(playersChoice(this), computerChoice()))
 	})
+
+
+	$('img').on("click", function(){	
+			$(".player_choice").text("You chose " + ($(this).data('gesture')))
+		});
+
+		$('img').on("click", function(){
+			$(".opp_choice").text("Your opponent chose " + computerGesture.type)
+		});
 
 	});
 
